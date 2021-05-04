@@ -32,15 +32,16 @@ function onImageClick(evt) {
         return;
     }
     evt.preventDefault();
-    removeActiveClass();
+    removeSrc();
     lightboxEL.classList.add('is-open');
     lightboxImg.src = evt.target.dataset.source;
 };
 
-function removeActiveClass() {
-    const currentActiveImage = document.querySelector('.lightbox.is-open');
+function removeSrc() {
+    const currentActiveImage = document.querySelector('.lightbox__image');
+
     if (currentActiveImage) {
-        currentActiveImage.classList.remove('is-open');
+        currentActiveImage.removeAttribute('src');
     }
 }
 
